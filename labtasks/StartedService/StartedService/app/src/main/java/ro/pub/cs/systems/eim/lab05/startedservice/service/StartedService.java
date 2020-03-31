@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import ro.pub.cs.systems.eim.lab05.startedservice.general.Constants;
+import ro.pub.cs.systems.eim.lab05.startedservice.service.ProcessingThread;
 
 public class StartedService extends Service {
 
@@ -42,6 +43,9 @@ public class StartedService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(Constants.TAG, "onStartCommand() method was invoked");
         // TODO: exercise 5 - implement and start the ProcessingThread
+        ProcessingThread th = new ProcessingThread(this);
+        th.start();
+
         return START_REDELIVER_INTENT;
     }
 
